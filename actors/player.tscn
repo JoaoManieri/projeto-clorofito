@@ -1,0 +1,112 @@
+[gd_scene load_steps=14 format=3 uid="uid://bev6accrtks02"]
+
+[ext_resource type="Script" uid="uid://berouxs50s0ar" path="res://script/player.gd" id="1_mvpqy"]
+[ext_resource type="Texture2D" uid="uid://d7y7as0u684h" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Idle (32 x 32).png" id="2_1yqc4"]
+[ext_resource type="Texture2D" uid="uid://dg7vcwr0olukm" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Hurt (32 x 32).png" id="2_kjkj0"]
+[ext_resource type="Texture2D" uid="uid://dhlff78nqjtxj" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Running (32 x 32).png" id="3_1yqc4"]
+[ext_resource type="Texture2D" uid="uid://cad6sff3om08f" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Jumping (32 x 32).png" id="4_tue77"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_03ata"]
+radius = 9.0
+height = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qoh0"]
+atlas = ExtResource("2_1yqc4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pm0a"]
+atlas = ExtResource("2_1yqc4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esgq3"]
+atlas = ExtResource("3_1yqc4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjkj0"]
+atlas = ExtResource("3_1yqc4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tue77"]
+atlas = ExtResource("3_1yqc4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33vod"]
+atlas = ExtResource("3_1yqc4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ieyoj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kjkj0")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_4qoh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pm0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qoh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pm0a")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tue77")
+}],
+"loop": true,
+"name": &"jumpy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esgq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjkj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tue77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33vod")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_mvpqy")
+
+[node name="colision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_03ata")
+
+[node name="camera" type="Camera2D" parent="."]
+limit_left = -50
+limit_smoothed = true
+drag_horizontal_enabled = true
+drag_left_margin = 0.15
+drag_right_margin = 0.15
+editor_draw_drag_margin = true
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_ieyoj")
+animation = &"hurt"
+autoplay = "idle"
+
+[node name="animator" type="AnimationPlayer" parent="."]
