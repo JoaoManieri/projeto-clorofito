@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c316lteobl3hc"]
+[gd_scene load_steps=16 format=3 uid="uid://c316lteobl3hc"]
 
 [ext_resource type="Texture2D" uid="uid://chgh1kshyej5t" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_2pm0a"]
 [ext_resource type="Texture2D" uid="uid://bftr7voslsbp5" path="res://assets/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="2_ieyoj"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://datvbmbb2ix7s" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="8_5grb1"]
 [ext_resource type="Texture2D" uid="uid://bf8n3mwlvo2aq" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="9_47tpc"]
 [ext_resource type="PackedScene" uid="uid://c51emj7152qy0" path="res://predef/coin/coin.tscn" id="10_fluno"]
+[ext_resource type="PackedScene" uid="uid://b16hce5t7gevu" path="res://actors/enemy/enemy.tscn" id="11_ytas2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ytas2"]
 shader = ExtResource("7_fluno")
@@ -222,3 +223,31 @@ position = Vector2(616, 296)
 
 [node name="coin4" parent="coins" instance=ExtResource("10_fluno")]
 position = Vector2(504, 296)
+
+[node name="enemyes" type="Node2D" parent="."]
+position = Vector2(-4, 115)
+scale = Vector2(1.5, 1)
+
+[node name="enemy2" parent="enemyes" instance=ExtResource("11_ytas2")]
+position = Vector2(66.6667, 181)
+scale = Vector2(0.666667, 1)
+
+[node name="enemy" parent="enemyes" instance=ExtResource("11_ytas2")]
+position = Vector2(226.667, 181)
+scale = Vector2(0.666667, 1)
+
+[node name="enemy3" parent="enemyes" instance=ExtResource("11_ytas2")]
+position = Vector2(845.333, 69)
+scale = Vector2(0.666667, 1)
+
+[node name="enemy5" parent="enemyes" instance=ExtResource("11_ytas2")]
+position = Vector2(1032, 197)
+scale = Vector2(0.666667, 1)
+
+[node name="enemy6" parent="enemyes" instance=ExtResource("11_ytas2")]
+position = Vector2(1208, 197)
+scale = Vector2(0.666667, 1)
+
+[node name="enemy4" parent="enemyes" instance=ExtResource("11_ytas2")]
+position = Vector2(674.667, 149)
+scale = Vector2(0.666667, 1)
