@@ -24,6 +24,10 @@ window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 window/canvas_textures/default_texture_filter=1
 
+[dotnet]
+
+project/assembly_name="Projeto Clorofito"
+
 [layer_names]
 
 2d_physics/layer_1="player"
